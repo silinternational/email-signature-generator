@@ -17,6 +17,11 @@ let clicked = 0
     <Icon class="material-icons">thumb_up</Icon>
     <Label>Click Me</Label>
   </Button>
+  <Button on:click={() => clicked++} variant="outlined" color="secondary">
+    <Icon class="material-icons">thumb_up</Icon>
+    <Label>Click Me</Label>
+  </Button>
+
   <p class="mdc-typography--body1">
     {#if clicked}
       You've clicked the button {clicked} time{clicked === 1 ? '' : 's'}.

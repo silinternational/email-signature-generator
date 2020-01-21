@@ -1,1 +1,8 @@
-// Nothing here. Just use the default theme.
+@import "@material/theme/color-palette";
+
+$mdc-theme-primary: #0b5e97;
+$mdc-theme-secondary: #791f5e;
+$mdc-theme-background: #fff;
+$mdc-theme-surface: #fff;
+
+$mdc-theme-error: $material-color-red-900;
