@@ -1,5 +1,4 @@
 <script>
-import TopAppBar, {Row, Section, Title} from '@smui/top-app-bar'
 import Button, {Label, Icon} from '@smui/button'
 
 let clicked = 0
@@ -10,18 +9,6 @@ let clicked = 0
   opacity: .6;
 }
 </style>
-
-<!-- https://sveltematerialui.com/demo/top-app-bar -->
-<!-- https://github.com/hperrin/svelte-material-ui/blob/master/packages/top-app-bar/README.md -->
-<!-- https://github.com/hperrin/svelte-material-ui/blob/master/site/src/routes/demo/top-app-bar.svelte -->
-<TopAppBar variant="static" dense>
-  <Row>
-    <Section>
-      <!-- TODO: add SIL logo -->
-      <Title>Email signature generator</Title>
-    </Section>
-  </Row>
-</TopAppBar>
 
 <main>
   <Button on:click={() => clicked++} variant="raised">
