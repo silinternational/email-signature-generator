@@ -16,18 +16,10 @@ export default {
 		file: `public/bundle.js`
 	},
 	plugins: [
-		svelte({
-			// enable run-time checks when not in production
-			dev: !production,
-			
-			emitCss: true
-		}),
+		svelte(),
 
-		// If you have external dependencies installed from
-		// npm, you'll most likely need these plugins. In
-		// some cases you'll need additional configuration —
-		// consult the documentation for details:
-		// https://github.com/rollup/rollup-plugin-commonjs
+		// If you have external dependencies installed from npm, you'll most likely need these plugins. In
+		// some cases you'll need additional configuration — consult the documentation for details: https://github.com/rollup/rollup-plugin-commonjs
 		resolve({
 			browser: true,
 			dedupe: importee => importee === 'svelte' || importee.startsWith('svelte/')
@@ -47,13 +39,8 @@ export default {
       ]
 		}),
 		
-		// Watch the `public` directory and refresh the
-		// browser on changes when not in production
-		!production && livereload('public'),
-
-		// If we're building for production (npm run build
-		// instead of npm run dev), minify
-		production && terser(),
+		// If we're building for production (npm run build instead of npm run dev), minify, otherwise refresh browser when changes are detected
+		production && terser() || livereload('public'),
 	],
 	watch: {
 		clearScreen: false
