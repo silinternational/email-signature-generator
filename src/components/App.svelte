@@ -1,30 +1,63 @@
 <script>
-import Button, {Label, Icon} from '@smui/button'
+import Textfield from '@smui/textfield'
 
-let clicked = 0
+let name = 'Billy Clark'
+let role = 'GTIS Application Developer'
+let number = '704-491-6396'
+let email = 'billy_clark@sil.org'
 </script>
 
 <style>
-.grayed {
-  opacity: .6;
+:global(body) {
+  margin: 3rem;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.mr {
+  margin-right: 2rem;
+}
+img {
+  max-height: 12rem;
 }
 </style>
 
-<main>
-  <Button on:click={() => clicked++} variant="raised">
-    <Icon class="material-icons">thumb_up</Icon>
-    <Label>Click Me</Label>
-  </Button>
-  <Button on:click={() => clicked++} variant="outlined" color="secondary">
-    <Icon class="material-icons">thumb_up</Icon>
-    <Label>Click Me</Label>
-  </Button>
+<div class="row">
+  <div class="mr">
+    <div>
+      <Textfield bind:value={name} label="Name" /> <!-- TODO: autofocus? -->
+    </div>
 
-  <p class="mdc-typography--body1">
-    {#if clicked}
-      You've clicked the button {clicked} time{clicked === 1 ? '' : 's'}.
-    {:else}
-      <span class="grayed">You haven't clicked the button.</span>
-    {/if}
-  </p>
-</main>
+    <div>
+      <Textfield bind:value={role} label="Role" />
+    </div>
+
+    <div>
+      <Textfield bind:value={number} label="Number" />
+    </div>
+
+    <div>
+      <Textfield bind:value={email} label="Email" />
+    </div>
+  </div>
+
+  <section class="mdc-elevation--z3 row">
+    <img src={`glyph1.png`} alt="logo">
+
+    <div>
+      <div>
+        {name}
+      </div>
+      <div>
+        {role}
+      </div>
+      <div>
+        {number} | {email}
+      </div>
+    </div>
+  </section>
+</div>
+
