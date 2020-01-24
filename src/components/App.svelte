@@ -11,14 +11,27 @@ let email = 'billy_clark@sil.org'
 :global(body) {
   margin: 3rem;
 }
+/* Textfield tweak to ensure user input is not cut off if it's longer than the input's initial width */
+:global(label) {
+  width: 100%
+}
 
+.p {
+  padding: 2rem;
+}
 .row {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
+.grow {
+  flex-grow: 1;
+}
 .mr {
   margin-right: 2rem;
+}
+.w {
+  width: 50ch;
 }
 img {
   max-height: 12rem;
@@ -27,8 +40,8 @@ img {
 
 <div class="row">
   <div class="mr">
-    <div>
-      <Textfield bind:value={name} label="Name" /> <!-- TODO: autofocus? -->
+    <div class="w">
+      <Textfield bind:value={name} label="Name" input$autofocus />
     </div>
 
     <div>
@@ -42,9 +55,11 @@ img {
     <div>
       <Textfield bind:value={email} label="Email" />
     </div>
+
+    
   </div>
 
-  <section class="mdc-elevation--z3 row">
+  <section class="mdc-elevation--z3 row grow p">
     <img src={`glyph1.png`} alt="logo">
 
     <div>
