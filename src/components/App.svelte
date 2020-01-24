@@ -34,17 +34,27 @@ let glyph = '1'
 .mr {
   margin-right: 2rem;
 }
-.w {
+.input-width {
   width: 50ch;
 }
 img {
   max-height: 12rem;
 }
+.thumbnail {
+  max-height: 3rem;
+}
+section.input-width div {
+  padding-bottom: 1rem;
+}
+.px {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
 </style>
 
 <div class="row">
-  <div class="mr">
-    <div class="w">
+  <section class="mr input-width">
+    <div>
       <Textfield bind:value={name} label="Name" input$autofocus />
     </div>
 
@@ -61,29 +71,31 @@ img {
     </div>
 
     <div>
-      Glyphs:
+      <!-- TODO: use an #each here -->
       <FormField>
         <Radio bind:group={glyph} value="1" />
-        <span slot="label">1</span>
+        <span slot="label"><img src={`glyph1.png`} alt="glyph1-logo" class="thumbnail"></span>
       </FormField>
       <FormField>
         <Radio bind:group={glyph} value="2" />
-        <span slot="label">2</span>
+        <span slot="label"><img src={`glyph2.png`} alt="glyph2-logo" class="thumbnail"></span>
       </FormField>
       <FormField>
         <Radio bind:group={glyph} value="3" />
-        <span slot="label">3</span>
+        <span slot="label"><img src={`glyph3.png`} alt="glyph3-logo" class="thumbnail"></span>
       </FormField>
       <FormField>
         <Radio bind:group={glyph} value="4" />
-        <span slot="label">4</span>
+        <span slot="label"><img src={`glyph4.png`} alt="glyph4-logo" class="thumbnail"></span>
       </FormField>
       <FormField>
         <Radio bind:group={glyph} value="5" />
-        <span slot="label">5</span>
+        <span slot="label"><img src={`glyph5.png`} alt="glyph5-logo" class="thumbnail"></span>
       </FormField>
     </div>
-  </div>
+
+    <!-- TODO: social links -->
+  </section>
 
   <section class="mdc-elevation--z3 row grow p">
     <img src={`glyph${glyph}.png`} alt="logo">
@@ -96,7 +108,9 @@ img {
         {role}
       </div>
       <div>
-        {number} <span>{number && email && '|'}</span> {email}
+        {number}
+        <span class="px">{number && email && '|'}</span>
+        {email}
       </div>
     </div>
   </section>
