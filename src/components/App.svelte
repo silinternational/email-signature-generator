@@ -11,7 +11,6 @@ let glyph = '1'
 </script>
 
 <style>
-/* TODO: source sans pro */
 :global(body) {
   margin: 3rem;
 }
@@ -50,6 +49,9 @@ section.input-width div {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
 }
+.sil-font {
+  font-family: 'Source Sans Pro';
+}
 </style>
 
 <div class="row">
@@ -85,7 +87,7 @@ section.input-width div {
   <section class="mdc-elevation--z3 row grow p">
     <img src={`glyph${glyph}.png`} alt="logo">
 
-    <div>
+    <div class="sil-font">
       <div>
         {name}
       </div>
