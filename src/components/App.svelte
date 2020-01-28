@@ -48,7 +48,7 @@ img {
 section.input-width div {
   padding-bottom: 1rem;
 }
-.sil-font {
+.sil-font > * {
   font-family: 'Source Sans Pro';
 }
 </style>
@@ -84,10 +84,10 @@ section.input-width div {
   </section>
 
   <section class="mdc-elevation--z3 row grow p">
-    <img src={`glyph${glyph}.png`} alt="logo">
+    <img src={`glyph${glyph}.png`} alt={`glyph${glyph} and logo`}>
 
     <div class="sil-font">
-      <div class="mdc-typography--headline3 pb">
+      <div class="mdc-typography--headline3 pb"> <!-- TODO: color the font primary -->
         {name}
       </div>
       <div class="mdc-typography--subtitle1">
