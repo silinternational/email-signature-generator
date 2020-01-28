@@ -109,7 +109,9 @@ section.input-width div {
       </div>
       <div>
         {number}
-        <span class="px">{number && email && '|'}</span>
+        {#if number && email}
+          <span class="px">{number && email && '|'}</span>
+        {/if}
         {email}
       </div>
     </div>
