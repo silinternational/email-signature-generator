@@ -33,7 +33,7 @@ let glyph = '1'
   width: 50ch;
 }
 img {
-  max-height: 12rem;
+  max-height: 9rem;
 }
 .thumbnail {
   max-height: 3rem;
@@ -84,13 +84,13 @@ section.input-width div {
     <img src={`glyph${glyph}.png`} alt="logo">
 
     <div class="sil-font">
-      <div>
+      <div class="mdc-typography--headline3">
         {name}
       </div>
-      <div>
+      <div class="mdc-typography--subtitle1">
         {role}
       </div>
-      <div>
+      <div class="mdc-typography--subtitle2">
         {number}
         {#if number && email}
           <span class="px">{number && email && '|'}</span>
