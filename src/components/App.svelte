@@ -71,27 +71,12 @@ section.input-width div {
     </div>
 
     <div>
-      <!-- TODO: use an #each here -->
-      <FormField>
-        <Radio bind:group={glyph} value="1" />
-        <span slot="label"><img src={`glyph1.png`} alt="glyph1-logo" class="thumbnail"></span>
-      </FormField>
-      <FormField>
-        <Radio bind:group={glyph} value="2" />
-        <span slot="label"><img src={`glyph2.png`} alt="glyph2-logo" class="thumbnail"></span>
-      </FormField>
-      <FormField>
-        <Radio bind:group={glyph} value="3" />
-        <span slot="label"><img src={`glyph3.png`} alt="glyph3-logo" class="thumbnail"></span>
-      </FormField>
-      <FormField>
-        <Radio bind:group={glyph} value="4" />
-        <span slot="label"><img src={`glyph4.png`} alt="glyph4-logo" class="thumbnail"></span>
-      </FormField>
-      <FormField>
-        <Radio bind:group={glyph} value="5" />
-        <span slot="label"><img src={`glyph5.png`} alt="glyph5-logo" class="thumbnail"></span>
-      </FormField>
+      {#each new Array(5) as x,i}
+        <FormField>
+          <Radio bind:group={glyph} value={`${i + 1}`} />
+          <span slot="label"><img src={`glyph${i + 1}.png`} alt={`glyph${i + 1}-logo`} class="thumbnail"></span>
+        </FormField>
+      {/each}
     </div>
 
     <!-- TODO: social links -->
