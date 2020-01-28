@@ -73,7 +73,7 @@ section.input-width div {
     </div>
 
     <div>
-      {#each new Array(5) as x,i}
+      {#each [...Array(5).keys()] as i}
         <FormField>
           <Radio bind:group={glyph} value={`${i + 1}`} />
           <span slot="label"><img src={`glyph${i + 1}.png`} alt={`glyph${i + 1}-logo`} class="thumbnail"></span>
