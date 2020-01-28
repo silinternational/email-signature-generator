@@ -14,10 +14,6 @@ let glyph = '1'
 :global(body) {
   margin: 3rem;
 }
-/* Textfield tweak to ensure user input is not cut off if it's longer than the input's initial width */
-:global(label) {
-  width: 100%
-}
 
 .p {
   padding: 2rem;
@@ -57,19 +53,19 @@ section.input-width div {
 <div class="row">
   <section class="mr input-width">
     <div>
-      <Textfield bind:value={name} label="Name" input$autofocus />
+      <Textfield bind:value={name} label="Name" input$autofocus class="mdc-text-field--fullwidth" />
     </div>
 
     <div>
-      <Textfield bind:value={role} label="Role" />
+      <Textfield bind:value={role} label="Role" class="mdc-text-field--fullwidth" />
     </div>
 
     <div>
-      <Textfield bind:value={number} label="Number" />
+      <Textfield bind:value={number} label="Number" class="mdc-text-field--fullwidth" />
     </div>
 
     <div>
-      <Textfield bind:value={email} label="Email" />
+      <Textfield bind:value={email} label="Email" class="mdc-text-field--fullwidth" />
     </div>
 
     <div>
