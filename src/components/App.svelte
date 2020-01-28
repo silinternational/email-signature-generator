@@ -18,6 +18,16 @@ let glyph = '1'
 .p {
   padding: 2rem;
 }
+.px {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+.mr {
+  margin-right: 2rem;
+}
+.pb {
+  padding-bottom: 1rem;
+}
 .row {
   display: flex;
   flex-direction: row;
@@ -26,24 +36,17 @@ let glyph = '1'
 .grow {
   flex-grow: 1;
 }
-.mr {
-  margin-right: 2rem;
-}
 .input-width {
   width: 50ch;
 }
 img {
-  max-height: 9rem;
+  max-height: 7rem;
 }
 .thumbnail {
   max-height: 3rem;
 }
 section.input-width div {
   padding-bottom: 1rem;
-}
-.px {
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
 }
 .sil-font {
   font-family: 'Source Sans Pro';
@@ -84,7 +87,7 @@ section.input-width div {
     <img src={`glyph${glyph}.png`} alt="logo">
 
     <div class="sil-font">
-      <div class="mdc-typography--headline3">
+      <div class="mdc-typography--headline3 pb">
         {name}
       </div>
       <div class="mdc-typography--subtitle1">
