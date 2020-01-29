@@ -16,6 +16,9 @@ const NUM_GLYPHS = 5
 :global(body) {
   margin: 3rem;
 }
+:global(label) {
+  width: 100%;
+}
 
 .p {
   padding: 2rem;
@@ -56,19 +59,19 @@ img {
 <div class="row">
   <section class="mr input-width">
     <div class="pb">
-      <Textfield bind:value={name} label="Name" input$autofocus class="mdc-text-field--fullwidth" />
+      <Textfield bind:value={name} label="Name" input$autofocus variant="outlined" />
     </div>
 
     <div class="pb">
-      <Textfield bind:value={role} label="Role" class="mdc-text-field--fullwidth" />
+      <Textfield bind:value={role} label="Role" variant="outlined" />
     </div>
 
     <div class="pb">
-      <Textfield bind:value={number} label="Number" class="mdc-text-field--fullwidth" />
+      <Textfield bind:value={number} label="Number" variant="outlined" />
     </div>
 
     <div class="pb">
-      <Textfield bind:value={email} label="Email" class="mdc-text-field--fullwidth" />
+      <Textfield bind:value={email} label="Email" variant="outlined" />
     </div>
 
     <div>
@@ -89,7 +92,7 @@ img {
     <img src={`glyph${glyph}.png`} alt={`glyph${glyph} and logo`}>
 
     <div class="sil-font">
-      <div class="mdc-typography--headline3 pb"> <!-- TODO: color the font primary -->
+      <div class="mdc-typography--headline3 pb"> <!-- TODO: color the font primary? -->
         {name}
       </div>
       <div class="mdc-typography--subtitle1">
