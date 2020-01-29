@@ -20,13 +20,6 @@ const NUM_GLYPHS = 5
   width: 100%;
 }
 
-.p {
-  padding: 2rem;
-}
-.px {
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-}
 .mr {
   margin-right: 2rem;
 }
@@ -44,24 +37,8 @@ const NUM_GLYPHS = 5
 .input-width {
   width: 50ch;
 }
-img {
-  max-height: 7rem;
-}
 .thumbnail {
   max-height: 3rem;
-}
-.sil-font > * {
-  font-family: 'Source Sans Pro';
-}
-/* 
-  Couldn't figure out how to utilize mdc for the color here so forced it.
-
-  var(--mdc-theme-primary) isn't available here
-
-  class='mdc-theme--primary' isn't available without importing the `@material/theme` but it overrides smui theming...
- */
-.primary {
-  color: #0b5e97; /* refer to `theme/_smui.scss` for primary color. */
 }
 </style>
 
@@ -97,24 +74,25 @@ img {
     <!-- TODO: still need each vendor instructions (check doc) -->
   </section>
 
-  <section class="mdc-elevation--z3 row grow p">
-    <img src={`glyph${glyph}.png`} alt={`glyph${glyph} and logo`}>
-
-    <div class="sil-font">
-      <div class="mdc-typography--headline3 pb primary"> 
-        {name}
-      </div>
-      <div class="mdc-typography--subtitle1">
-        {role}
-      </div>
-      <div class="mdc-typography--subtitle2">
-        {number}
-        {#if number && email}
-          <span class="px">{number && email && '|'}</span>
-        {/if}
-        {email}
-      </div>
-    </div>
+  <section class="mdc-elevation--z3 grow">
+    <table style="padding: 2rem">
+      <tr>
+        <td>
+          <img src={`glyph${glyph}.png`} alt={`glyph${glyph} and logo`} style="max-height: 9rem">
+        </td>
+        <td style="font-family: 'Source Sans Pro';">
+          <div style="color: #0b5e97; font-size: xx-large; padding-bottom: 2rem;">{name}</div>
+          <div>{role}</div>
+          <div>
+            {number}
+            {#if number && email}
+              <span style="padding-left: 0.5rem; padding-right: 0.5rem;">|</span>
+            {/if}
+            {email}
+          </div>
+        </td>
+      </tr>
+    </table>
   </section>
 </div>
 
