@@ -8,6 +8,8 @@ let role = 'GTIS Application Developer'
 let number = '704-491-6396'
 let email = 'billy_clark@sil.org'
 let glyph = '1'
+
+const NUM_GLYPHS = 5
 </script>
 
 <style>
@@ -45,34 +47,32 @@ img {
 .thumbnail {
   max-height: 3rem;
 }
-section.input-width div {
-  padding-bottom: 1rem;
-}
 .sil-font > * {
   font-family: 'Source Sans Pro';
 }
 </style>
+<!-- TODO: do we need to support mobile? -->
 
 <div class="row">
   <section class="mr input-width">
-    <div>
+    <div class="pb">
       <Textfield bind:value={name} label="Name" input$autofocus class="mdc-text-field--fullwidth" />
     </div>
 
-    <div>
+    <div class="pb">
       <Textfield bind:value={role} label="Role" class="mdc-text-field--fullwidth" />
     </div>
 
-    <div>
+    <div class="pb">
       <Textfield bind:value={number} label="Number" class="mdc-text-field--fullwidth" />
     </div>
 
-    <div>
+    <div class="pb">
       <Textfield bind:value={email} label="Email" class="mdc-text-field--fullwidth" />
     </div>
 
     <div>
-      {#each [...Array(5).keys()] as i}
+      {#each [...Array(NUM_GLYPHS).keys()] as i}
         <FormField>
           <Radio bind:group={glyph} value={`${i + 1}`} />
           <span slot="label"><img src={`glyph${i + 1}.png`} alt={`glyph${i + 1}-logo`} class="thumbnail"></span>
@@ -81,6 +81,8 @@ section.input-width div {
     </div>
 
     <!-- TODO: social links -->
+    <!-- TODO: tz selector? -->
+    <!-- TODO: still need each vendor instructions (check doc) -->
   </section>
 
   <section class="mdc-elevation--z3 row grow p">
