@@ -53,8 +53,17 @@ img {
 .sil-font > * {
   font-family: 'Source Sans Pro';
 }
+/* 
+  Couldn't figure out how to utilize mdc for the color here so forced it.
+
+  var(--mdc-theme-primary) isn't available here
+
+  class='mdc-theme--primary' isn't available without importing the `@material/theme` but it overrides smui theming...
+ */
+.primary {
+  color: #0b5e97; /* refer to `theme/_smui.scss` for primary color. */
+}
 </style>
-<!-- TODO: do we need to support mobile? -->
 
 <div class="row">
   <section class="mr input-width">
@@ -92,7 +101,7 @@ img {
     <img src={`glyph${glyph}.png`} alt={`glyph${glyph} and logo`}>
 
     <div class="sil-font">
-      <div class="mdc-typography--headline3 pb"> <!-- TODO: color the font primary? -->
+      <div class="mdc-typography--headline3 pb primary"> 
         {name}
       </div>
       <div class="mdc-typography--subtitle1">
