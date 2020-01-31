@@ -73,7 +73,7 @@ figure {
     {#each [...Array(NUM_GLYPHS).keys()] as i}
       <FormField>
         <Radio bind:group={glyph} value={`${i + 1}`} />
-        <img src={`glyph${i + 1}.png`} alt={`glyph${i + 1}-logo`} class="thumbnail">
+        <img src={`https://static.sil.org/brand-tool/glyph${i + 1}.png`} alt={`glyph${i + 1}-logo`} class="thumbnail">
       </FormField>
     {/each}
 
@@ -119,7 +119,7 @@ figure {
       <table style="border-spacing: 0">
         <tr>
           <td style="padding-right: 1rem">
-            <img src={`glyph${glyph}.png`} alt={`glyph${glyph} and logo`} style="max-height: 9rem">
+            <img src={`https://static.sil.org/brand-tool/glyph${glyph}.png`} alt={`glyph${glyph} and logo`} style="max-height: 9rem">
           </td>
           <td style="font-family: 'Source Sans Pro'; padding: 0">
             <div style="color: #0b5e97; font-size: xx-large">{name}</div>
