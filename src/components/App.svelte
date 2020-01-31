@@ -81,7 +81,7 @@ figure {
 
   <section>
     <nav>
-      <TabBar tabs={['Gmail', 'Thunderbird', 'Outlook']} let:tab bind:active>
+      <TabBar tabs={['Gmail', 'Thunderbird']} let:tab bind:active>
       
         <Tab {tab}>
           <Label>{tab}</Label>
@@ -108,8 +108,6 @@ figure {
           <li>Click <em>Use HTML</em></li>
           <li>Paste</li>
           <li>Click <em>OK</em></li>
-        {:else if active === 'Outlook'}
-          instructions still needed
         {/if}
       </ol>
     </nav>
