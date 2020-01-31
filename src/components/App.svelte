@@ -31,13 +31,16 @@ main {
 }
 form {
   margin-right: 2rem;
-  width: 50ch;
+  width: 55ch;
 }
 form > :global(*) {
   margin-bottom: 1rem;
 }
 form > :global(label) {
   width: 100%;
+}
+main > section {
+  flex-grow: 1;
 }
 nav {
   margin-bottom: 2rem;
@@ -53,7 +56,7 @@ nav > ol {
 }
 figure {
   margin: 0;
-  flex-grow: 1;
+  padding: 2rem;
 }
 .thumbnail {
   max-height: 3rem;
@@ -113,12 +116,12 @@ figure {
     </nav>
 
     <figure class="mdc-elevation--z3">
-      <table>
+      <table style="border-spacing: 0">
         <tr>
-          <td>
+          <td style="padding-right: 1rem">
             <img src={`glyph${glyph}.png`} alt={`glyph${glyph} and logo`} style="max-height: 9rem">
           </td>
-          <td style="font-family: 'Source Sans Pro'">
+          <td style="font-family: 'Source Sans Pro'; padding: 0">
             <div style="color: #0b5e97; font-size: xx-large">{name}</div>
             <div>{role}</div>
             <div>
