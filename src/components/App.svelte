@@ -42,8 +42,12 @@ form > :global(label) {
 main > section {
   flex-grow: 1;
 }
-nav {
-  margin-bottom: 2rem;
+main > section > nav {
+  width: max-content;
+}
+nav > header {
+  padding-top: 3rem;
+  padding-bottom: 1rem;
 }
 nav > ol {
   padding-bottom: 1rem;
@@ -107,6 +111,8 @@ figure {
     </figure>
 
     <nav>
+      <header class="mdc-typography--headline5">Email client instructions</header>
+
       <TabBar tabs={['Gmail', 'Thunderbird']} let:tab bind:active>
       
         <Tab {tab}>
@@ -116,7 +122,7 @@ figure {
 
       <ol class="mdc-typography--body1">
         {#if active === 'Gmail'}
-          <li>Highlight all of the generated signature below and copy it to your clipboard</li>
+          <li>Highlight all of the generated signature above and copy it to your clipboard</li>
           <li>Open Gmail</li>
           <li>In the top right, click <em>Settings</em></li>
           <li>In the "Signature" section, paste in the box.</li>
@@ -126,7 +132,7 @@ figure {
             <Button on:click={copy} variant='raised' dense>
               Click here
             </Button> 
-            to copy the generated signature below
+            to copy the generated signature above
           </li>
           <li>Open Thunderbird</li>
           <li>View account settings in <em>Accounts</em></li>
