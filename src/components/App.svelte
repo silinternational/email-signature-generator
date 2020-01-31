@@ -113,7 +113,7 @@ figure {
     </nav>
 
     <figure class="mdc-elevation--z3">
-      <table style="padding: 2rem">
+      <table>
         <tr>
           <td>
             <img src={`glyph${glyph}.png`} alt={`glyph${glyph} and logo`} style="max-height: 9rem">
