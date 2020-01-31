@@ -73,7 +73,9 @@ figure {
     {#each [...Array(NUM_GLYPHS).keys()] as i}
       <FormField>
         <Radio bind:group={glyph} value={`${i + 1}`} />
+        <span slot="label">
         <img src={`https://static.sil.org/brand-tool/glyph${i + 1}.png`} alt={`glyph${i + 1}-logo`} class="thumbnail">
+        </span>        
       </FormField>
     {/each}
 
@@ -83,6 +85,27 @@ figure {
   </form>
 
   <section>
+    <figure class="mdc-elevation--z3">
+      <table style="border-spacing: 0">
+        <tr>
+          <td style="padding-right: 1rem">
+            <img src={`https://static.sil.org/brand-tool/glyph${glyph}.png`} alt={`glyph${glyph} and logo`} style="max-height: 9rem">
+          </td>
+          <td style="font-family: 'Source Sans Pro'; padding: 0">
+            <div style="color: #0b5e97; font-size: xx-large">{name}</div>
+            <div>{role}</div>
+            <div>
+              {number}
+              {#if number && email}
+                <span style="padding-left: 0.5rem; padding-right: 0.5rem">|</span>
+              {/if}
+              {email}
+            </div>
+          </td>
+        </tr>
+      </table>
+    </figure>
+
     <nav>
       <TabBar tabs={['Gmail', 'Thunderbird']} let:tab bind:active>
       
@@ -114,27 +137,6 @@ figure {
         {/if}
       </ol>
     </nav>
-
-    <figure class="mdc-elevation--z3">
-      <table style="border-spacing: 0">
-        <tr>
-          <td style="padding-right: 1rem">
-            <img src={`https://static.sil.org/brand-tool/glyph${glyph}.png`} alt={`glyph${glyph} and logo`} style="max-height: 9rem">
-          </td>
-          <td style="font-family: 'Source Sans Pro'; padding: 0">
-            <div style="color: #0b5e97; font-size: xx-large">{name}</div>
-            <div>{role}</div>
-            <div>
-              {number}
-              {#if number && email}
-                <span style="padding-left: 0.5rem; padding-right: 0.5rem">|</span>
-              {/if}
-              {email}
-            </div>
-          </td>
-        </tr>
-      </table>
-    </figure>
   </section>
 </main>
 
