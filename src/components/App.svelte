@@ -16,7 +16,7 @@ let active = 'Gmail'
 const NUM_GLYPHS = 5
 
 function copy() {
-  navigator.clipboard.writeText(document.querySelector('table').innerHTML)
+  navigator.clipboard.writeText(document.querySelector('figure').innerHTML)
 }
 </script>
 
