@@ -4,6 +4,9 @@ import commonjs from '@rollup/plugin-commonjs'
 import postcss from 'rollup-plugin-postcss'
 import livereload from 'rollup-plugin-livereload'
 import { terser } from 'rollup-plugin-terser'
+import htmlTemplate from 'rollup-plugin-generate-html-template'
+
+const cacheBust = Date.now()
 
 const production = !process.env.ROLLUP_WATCH
 
@@ -13,7 +16,7 @@ export default {
 		sourcemap: true,
 		format: 'iife',
 		name: 'app',
-		file: `public/bundle.js`
+		file: `public/bundle.${cacheBust}.js`
 	},
 	plugins: [
 		svelte(),
@@ -41,6 +44,14 @@ export default {
 		
 		// If we're building for production (npm run build instead of npm run dev), minify, otherwise refresh browser when changes are detected
 		production && terser() || livereload('public'),
+
+		// generates a public/index.html that pulls in the newly cache-busted
+		// app files, e.g., public/bundle.[timestamp].js
+		htmlTemplate({
+      template: 'src/prebuild-index.html',
+			target: 'public/index.html',
+			attrs: ['defer'],
+    }),
 	],
 	watch: {
 		clearScreen: false
