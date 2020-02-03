@@ -51,6 +51,9 @@ export default {
       template: 'src/prebuild-index.html',
 			target: 'public/index.html',
 			attrs: ['defer'],
+			replaceVars: {
+				'__CACHE_BUST__': cacheBust
+			}
     }),
 	],
 	watch: {
