@@ -2,9 +2,12 @@
 import Textfield from '@smui/textfield'
 import Radio from '@smui/radio'
 import FormField from '@smui/form-field'
-import Tab, {Icon, Label} from '@smui/tab'
+import Tab, {Label} from '@smui/tab'
 import TabBar from '@smui/tab-bar'
 import Button from '@smui/button'
+import timezones from '../data/tz'
+import Select, {Option} from '@smui/select'
+import Icon from '@smui/select/icon'
 
 let name = ''
 let role = ''
@@ -12,6 +15,10 @@ let number = ''
 let email = ''
 let glyph = '1'
 let active = 'Gmail'
+let chosenTzAbbr = ''
+
+$: chosenTz = chosenTzAbbr && timezones.find(tz => tz.abbreviation === chosenTzAbbr)
+$: tzDisplay = chosenTz && `${chosenTz.name} (${chosenTz.offset})`
 
 const NUM_GLYPHS = 5
 
@@ -84,8 +91,13 @@ figure {
     {/each}
 
     <!-- TODO: social links -->
-    <!-- TODO: tz selector? -->
-    <!-- TODO: need favicon? -->
+    <Select label="Timezone" bind:value={chosenTzAbbr} variant="outlined" withLeadingIcon>
+      <span slot="icon"><Icon class="material-icons">language</Icon></span>
+      <Option value=""></Option>
+        {#each timezones as tz}
+          <Option value={tz.abbreviation}>{tz.name} ({tz.offset})</Option>
+        {/each}
+    </Select>
   </form>
 
   <section>
@@ -105,6 +117,7 @@ figure {
               {/if}
               {email}
             </div>
+            <div>{tzDisplay || ''}</div>
           </td>
         </tr>
       </table>
