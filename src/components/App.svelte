@@ -77,6 +77,8 @@ figure {
     <Textfield bind:value={name} label="Name" input$autofocus variant="outlined" />
     <Textfield bind:value={org} label="Organization / Unit" variant="outlined" />
     <Textfield bind:value={role} label="Role" variant="outlined" />
+    <Textfield bind:value={org} label="Organization / Unit" variant="outlined" />
+
     <Textfield bind:value={number} label="Number" variant="outlined" />
     <Textfield bind:value={email} label="Email" variant="outlined" />
 
@@ -108,6 +110,7 @@ figure {
           </td>
           <td style="font-family: 'Source Sans Pro'; padding: 0">
             <div style="color: #0b5e97; font-size: large">{name}</div>
+            <div>{role}</div>
             <div>{org}</div>
             <div>{role}</div>
             <div>
