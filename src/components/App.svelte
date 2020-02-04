@@ -130,7 +130,6 @@ figure {
       <header class="mdc-typography--headline5">Email client instructions</header>
 
       <TabBar tabs={['Gmail', 'Thunderbird']} let:tab bind:active>
-      
         <Tab {tab}>
           <Label>{tab}</Label>
         </Tab>
