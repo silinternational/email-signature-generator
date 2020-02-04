@@ -10,6 +10,7 @@ import Select, {Option} from '@smui/select'
 import Icon from '@smui/select/icon'
 
 let name = ''
+let org = ''
 let role = ''
 let number = ''
 let email = ''
@@ -77,18 +78,10 @@ figure {
 <main>
   <form>
     <Textfield bind:value={name} label="Name" input$autofocus variant="outlined" />
+    <Textfield bind:value={org} label="Organization / Unit" variant="outlined" />
     <Textfield bind:value={role} label="Role" variant="outlined" />
     <Textfield bind:value={number} label="Number" variant="outlined" />
     <Textfield bind:value={email} label="Email" variant="outlined" />
-
-    {#each [...Array(NUM_GLYPHS).keys()] as i}
-      <FormField>
-        <Radio bind:group={glyph} value={`${i + 1}`} />
-        <span slot="label">
-        <img src={`https://static.sil.org/brand-tool/glyph${i + 1}.png`} alt={`glyph${i + 1}-logo`} class="thumbnail">
-        </span>        
-      </FormField>
-    {/each}
 
     <!-- TODO: social links -->
     <Select label="Timezone" bind:value={chosenTzAbbr} variant="outlined" withLeadingIcon>
@@ -98,6 +91,15 @@ figure {
           <Option value={tz.abbreviation}>{tz.name} ({tz.offset})</Option>
         {/each}
     </Select>
+
+    {#each [...Array(NUM_GLYPHS).keys()] as i}
+      <FormField>
+        <Radio bind:group={glyph} value={`${i + 1}`} />
+        <span slot="label">
+        <img src={`https://static.sil.org/brand-tool/glyph${i + 1}.png`} alt={`glyph${i + 1}-logo`} class="thumbnail">
+        </span>        
+      </FormField>
+    {/each}
   </form>
 
   <section>
@@ -105,10 +107,11 @@ figure {
       <table style="border-spacing: 0">
         <tr>
           <td style="padding-right: 1rem">
-            <img src={`https://static.sil.org/brand-tool/glyph${glyph}.png`} alt={`glyph${glyph} and logo`} style="max-height: 9rem">
+            <img src={`https://static.sil.org/brand-tool/glyph${glyph}.png`} alt={`glyph${glyph} and logo`} style="max-height: 5rem">
           </td>
           <td style="font-family: 'Source Sans Pro'; padding: 0">
-            <div style="color: #0b5e97; font-size: xx-large">{name}</div>
+            <div style="color: #0b5e97; font-size: large">{name}</div>
+            <div>{org}</div>
             <div>{role}</div>
             <div>
               {number}
