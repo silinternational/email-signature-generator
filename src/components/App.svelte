@@ -50,9 +50,6 @@ form > :global(label) {
 main > section {
   flex-grow: 1;
 }
-main > section > nav {
-  width: max-content;
-}
 nav > header {
   padding-top: 3rem;
   padding-bottom: 1rem;
