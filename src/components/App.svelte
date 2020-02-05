@@ -17,6 +17,7 @@ let email = ''
 let glyph = '1'
 let active = 'Gmail'
 let chosenTzAbbr = ''
+let skypeName = ''
 
 $: chosenTz = chosenTzAbbr && timezones.find(tz => tz.abbreviation === chosenTzAbbr)
 $: tzDisplay = chosenTz && `${chosenTz.name} (${chosenTz.offset})`
@@ -44,7 +45,7 @@ form {
 form > :global(*) {
   margin-bottom: 1rem;
 }
-form > :global(label) {
+form :global(label) {
   width: 100%;
 }
 main > section {
@@ -70,19 +71,24 @@ figure {
 .thumbnail {
   max-height: 3rem;
 }
+.social-logo {
+  height: 30px;
+  left: auto;
+  right: 16px;
+  position: absolute;
+  top: 13px;
+}
 </style>
 
 <main>
   <form>
     <Textfield bind:value={name} label="Name" input$autofocus variant="outlined" />
-    <Textfield bind:value={org} label="Organization / Unit" variant="outlined" />
     <Textfield bind:value={role} label="Role" variant="outlined" />
     <Textfield bind:value={org} label="Organization / Unit" variant="outlined" />
 
     <Textfield bind:value={number} label="Number" variant="outlined" />
     <Textfield bind:value={email} label="Email" variant="outlined" />
 
-    <!-- TODO: social links -->
     <Select label="Timezone" bind:value={chosenTzAbbr} variant="outlined" withLeadingIcon>
       <span slot="icon"><Icon class="material-icons">language</Icon></span>
       <Option value=""></Option>
@@ -91,18 +97,26 @@ figure {
         {/each}
     </Select>
 
+    <div>
+      <Textfield bind:value={skypeName} label="Skype name" variant="outlined" withTrailingIcon>
+        <img src="https://secure.skypeassets.com/content/dam/scom/legal/brand-guidelines/skype-icon.svg" alt="Skype logo" class="social-logo">
+      </Textfield>
+    </div>
+    <!-- TODO: social links -->
+
     {#each [...Array(NUM_GLYPHS).keys()] as i}
       <FormField>
         <Radio bind:group={glyph} value={`${i + 1}`} />
         <span slot="label">
-        <img src={`https://static.sil.org/brand-tool/glyph${i + 1}.png`} alt={`glyph${i + 1}-logo`} class="thumbnail">
+          <img src={`https://static.sil.org/brand-tool/glyph${i + 1}.png`} alt={`glyph${i + 1}-logo`} class="thumbnail">
         </span>        
       </FormField>
     {/each}
   </form>
 
+  <!-- this will abide by HTML email constraints so user can copy/paste into email client -->
   <section>
-    <figure class="mdc-elevation--z3">
+    <figure class="mdc-elevation--z3"> 
       <table style="border-spacing: 0">
         <tr>
           <td style="padding-right: 1rem">
@@ -112,7 +126,6 @@ figure {
             <div style="color: #0b5e97; font-size: large">{name}</div>
             <div>{role}</div>
             <div>{org}</div>
-            <div>{role}</div>
             <div>
               {number}
               {#if number && email}
@@ -121,6 +134,9 @@ figure {
               {email}
             </div>
             <div>{tzDisplay || ''}</div>
+            {#if skypeName}
+              <div>Skype: {skypeName}</div>
+            {/if}
           </td>
         </tr>
       </table>
