@@ -119,8 +119,10 @@ figure {
     <figure class="mdc-elevation--z3"> 
       <table style="border-spacing: 0">
         <tr>
-          <td style="padding-right: 1rem">
-            <img src={`https://static.sil.org/brand-tool/glyph${glyph}.png`} alt={`glyph${glyph} and logo`} style="max-height: 5rem">
+          <td style="padding-right: 1rem; padding-top: 0.4rem; vertical-align: top">
+            <a href="https://www.sil.org">
+              <img src={`https://static.sil.org/brand-tool/glyph${glyph}.png`} alt={`glyph${glyph} and logo`} style="max-height: 5rem">
+            </a>
           </td>
           <td style="font-family: 'Source Sans Pro'; padding: 0">
             <div style="color: #0b5e97; font-size: large">{name}</div>
