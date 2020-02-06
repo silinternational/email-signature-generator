@@ -143,7 +143,7 @@ figure {
             <div>{tzDisplay || ''}</div>
             {#if skypeName}
               <img src="https://static.sil.org/brand-tool/skype-icon.png" alt="Skype logo" style="height: 1rem; vertical-align: middle">
-              <a href="{`skype:${skypeName}?userinfo`}">{skypeName}</a>
+              <span>{skypeName}</span>
             {/if}
           </td>
         </tr>
