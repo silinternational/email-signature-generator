@@ -6,3 +6,4 @@ public/index.html
 *.tfstate
 *.tfstate.backup
 .terraform/
+.env
