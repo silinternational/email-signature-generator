@@ -104,7 +104,7 @@ figure {
 
     <div>
       <Textfield bind:value={skypeName} label="Skype name" variant="outlined" withTrailingIcon>
-        <img src="https://secure.skypeassets.com/content/dam/scom/legal/brand-guidelines/skype-icon.svg" alt="Skype logo" class="social-logo">
+        <img src="skype-icon.svg" alt="Skype logo" class="social-logo">
       </Textfield>
     </div>
     <!-- TODO: social links -->
@@ -142,7 +142,8 @@ figure {
             </div>
             <div>{tzDisplay || ''}</div>
             {#if skypeName}
-              <div>Skype: {skypeName}</div>
+              <img src="https://static.sil.org/brand-tool/skype-icon.png" alt="Skype logo" style="height: 1rem; vertical-align: middle">
+              <a href="{`skype:${skypeName}?userinfo`}">{skypeName}</a>
             {/if}
           </td>
         </tr>
