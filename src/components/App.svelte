@@ -69,6 +69,9 @@ nav > ol {
   border-width: 2px;
   border-radius: 1rem;
 }
+nav > ol > li {
+  margin-bottom: 1rem;
+}
 figure {
   margin: 0;
   padding: 2rem;
@@ -82,6 +85,9 @@ figure {
   right: 16px;
   position: absolute;
   top: 13px;
+}
+:global(.mr-1) {
+  margin-right: .5rem;
 }
 </style>
 
@@ -168,7 +174,7 @@ figure {
           <li>At the bottom of the page, click Save Changes.</li>
         {:else if active === 'Thunderbird'}
           <li>
-            <Button on:click={copy} variant='raised' dense>
+            <Button on:click={copy} variant='raised' dense class="mr-1">
               Click here
             </Button> 
             to copy the generated signature above
