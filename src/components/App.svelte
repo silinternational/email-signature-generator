@@ -12,7 +12,8 @@ import Icon from '@smui/select/icon'
 let name = ''
 let org = ''
 let role = ''
-let number = ''
+let workNumber = ''
+let cellNumber = ''
 let email = ''
 let glyph = '1'
 let active = 'Gmail'
@@ -97,7 +98,8 @@ figure {
     <Textfield bind:value={role} label="Role" variant="outlined" />
     <Textfield bind:value={org} label="Organization / Unit" variant="outlined" />
 
-    <Textfield bind:value={number} label="Number" variant="outlined" />
+    <Textfield bind:value={workNumber} label="Work number" variant="outlined" />
+    <Textfield bind:value={cellNumber} label="Cell number" variant="outlined" />
     <Textfield bind:value={email} label="Email" variant="outlined" />
 
     <Select label="Timezone" bind:value={chosenTzAbbr} variant="outlined" withLeadingIcon>
@@ -140,8 +142,16 @@ figure {
             <div>{role}</div>
             <div>{org}</div>
             <div>
-              {number}
-              {#if number && email}
+              {#if workNumber}
+                {workNumber} <small>(w)</small>
+              {/if}
+              {#if workNumber && cellNumber}
+                <span style="padding-left: 0.5rem; padding-right: 0.5rem">|</span>
+              {/if}
+              {#if cellNumber}
+                 {cellNumber} <small>(c)</small>
+              {/if}
+              {#if (workNumber || cellNumber) && email}
                 <span style="padding-left: 0.5rem; padding-right: 0.5rem">|</span>
               {/if}
               {email}
