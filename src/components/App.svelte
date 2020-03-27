@@ -8,9 +8,11 @@ import Button from '@smui/button'
 import timezones from '../data/tz'
 import Select, {Option} from '@smui/select'
 import Icon from '@smui/select/icon'
+import Checkbox from '@smui/checkbox'
 
 let name = ''
 let org = ''
+let showSIL = false
 let role = ''
 let workNumber = ''
 let cellNumber = ''
@@ -97,6 +99,10 @@ figure {
     <Textfield bind:value={name} label="Name" input$autofocus variant="outlined" />
     <Textfield bind:value={role} label="Role" variant="outlined" />
     <Textfield bind:value={org} label="Organization / Unit" variant="outlined" />
+    <FormField>
+      <Checkbox bind:checked={showSIL} />
+      <span slot="label">Show SIL International</span>
+    </FormField>
 
     <Textfield bind:value={workNumber} label="Work number" variant="outlined" />
     <Textfield bind:value={cellNumber} label="Cell number" variant="outlined" />
