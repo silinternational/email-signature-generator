@@ -19,12 +19,9 @@ let cellNumber = ''
 let email = ''
 let glyph = '1'
 let active = 'Gmail'
-let chosenTzAbbr = ''
+let chosenTzDisplay = ''
 let skypeName = ''
 let additional = ''
-
-$: chosenTz = chosenTzAbbr && timezones.find(tz => tz.abbreviation === chosenTzAbbr)
-$: tzDisplay = chosenTz && `${chosenTz.name} (${chosenTz.offset})`
 
 const NUM_GLYPHS = 5
 
@@ -109,11 +106,11 @@ figure {
     <Textfield bind:value={cellNumber} label="Cell number" variant="outlined" />
     <Textfield bind:value={email} label="Email" variant="outlined" />
 
-    <Select label="Timezone" bind:value={chosenTzAbbr} variant="outlined" withLeadingIcon>
+    <Select label="Timezone" bind:value={chosenTzDisplay} variant="outlined" withLeadingIcon>
       <span slot="icon"><Icon class="material-icons">language</Icon></span>
       <Option value=""></Option>
         {#each timezones as tz}
-          <Option value={tz.abbreviation}>{tz.name} ({tz.offset})</Option>
+          <Option>{tz.name} ({tz.offset})</Option>
         {/each}
     </Select>
 
@@ -170,7 +167,7 @@ figure {
               {/if}
               {email}
             </div>
-            <div>{tzDisplay || ''}</div>
+            <div>{chosenTzDisplay || ''}</div>
             {#if skypeName}
               <img src="https://static.sil.org/brand-tool/skype-icon.png" alt="Skype logo" style="height: 1rem; vertical-align: middle">
               <span>{skypeName}</span>
