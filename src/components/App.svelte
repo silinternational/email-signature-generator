@@ -21,6 +21,7 @@ let glyph = '1'
 let active = 'Gmail'
 let chosenTzAbbr = ''
 let skypeName = ''
+let additional = ''
 
 $: chosenTz = chosenTzAbbr && timezones.find(tz => tz.abbreviation === chosenTzAbbr)
 $: tzDisplay = chosenTz && `${chosenTz.name} (${chosenTz.offset})`
@@ -132,7 +133,7 @@ figure {
       </FormField>
     {/each}
 
-    <div><textarea name="dfs" id="" cols="30" rows="10"></textarea></div> <!-- TODO: free form text ends up at bottom of sig -->
+    <Textfield textarea bind:value={additional} label="Additional info" />
   </form>
 
   <!-- this will abide by HTML email constraints so user can copy/paste into email client -->
@@ -174,6 +175,9 @@ figure {
               <img src="https://static.sil.org/brand-tool/skype-icon.png" alt="Skype logo" style="height: 1rem; vertical-align: middle">
               <span>{skypeName}</span>
             {/if}
+            <pre style="font-family: initial">
+              {additional}
+            </pre>
           </td>
         </tr>
       </table>
