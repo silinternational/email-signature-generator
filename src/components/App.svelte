@@ -131,6 +131,8 @@ figure {
         </span>        
       </FormField>
     {/each}
+
+    <div><textarea name="dfs" id="" cols="30" rows="10"></textarea></div> <!-- TODO: free form text ends up at bottom of sig -->
   </form>
 
   <!-- this will abide by HTML email constraints so user can copy/paste into email client -->
@@ -147,6 +149,11 @@ figure {
             <strong style="color: #0b5e97">{name}</strong>
             <div>{role}</div>
             <div>{org}</div>
+            <div>
+              {#if showSIL}
+                 <a href="https://www.sil.org">SIL International</a>
+              {/if}
+            </div>
             <div>
               {#if workNumber}
                 {workNumber} <small>(w)</small>
