@@ -136,7 +136,7 @@ figure {
             </a>
           </td>
           <td style="font-family: 'Source Sans Pro'; padding: 0">
-            <div style="color: #0b5e97; font-size: large">{name}</div>
+            <strong style="color: #0b5e97">{name}</strong>
             <div>{role}</div>
             <div>{org}</div>
             <div>
