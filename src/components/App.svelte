@@ -145,33 +145,54 @@ figure {
           </td>
           <td style="font-family: 'Source Sans Pro'; padding: 0">
             <strong style="color: #0b5e97">{name}</strong>
-            <div>{role}</div>
-            <div>{org}</div>
-            <div>
-              {#if showSIL}
-                 <a href="https://www.sil.org">SIL International</a>
-              {/if}
-            </div>
-            <div>
+
+            {#if role}
+              <br>
+              {role}
+            {/if}
+
+            {#if org}
+              <br>
+              {org}
+            {/if}
+
+            {#if showSIL}
+              <br>
+              <a href="https://www.sil.org">SIL International</a><br>
+            {/if}
+
+            {#if workNumber || cellNumber || email}
+               <br>
               {#if workNumber}
                 {workNumber} <small>(w)</small>
               {/if}
+
               {#if workNumber && cellNumber}
                 <span style="padding-left: 0.5rem; padding-right: 0.5rem">|</span>
               {/if}
+
               {#if cellNumber}
-                 {cellNumber} <small>(c)</small>
+                  {cellNumber} <small>(c)</small>
               {/if}
+
               {#if (workNumber || cellNumber) && email}
                 <span style="padding-left: 0.5rem; padding-right: 0.5rem">|</span>
               {/if}
+
               {email}
-            </div>
-            <div>{chosenTzDisplay || ''}</div>
-            {#if skypeName}
-              <img src="https://static.sil.org/brand-tool/skype-icon.png" alt="Skype logo" style="height: 1rem; vertical-align: middle">
-              <span>{skypeName}</span>
+            {/if}            
+
+            {#if chosenTzDisplay}
+              <br>
+              {chosenTzDisplay}
             {/if}
+
+            {#if skypeName}
+              <br>
+              <img src="https://static.sil.org/brand-tool/skype-icon.png" alt="Skype logo" style="height: 1rem; vertical-align: middle">
+              <span>{skypeName}</span><br>
+            {/if}
+
             <pre style="font-family: initial">
               {additional}
             </pre>
