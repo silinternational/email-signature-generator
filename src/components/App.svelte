@@ -140,7 +140,7 @@ figure {
         <tr>
           <td width="170px" style="padding-top: 0.4rem; vertical-align: top">
             <a href="https://www.sil.org">
-              <img src={`https://static.sil.org/brand-tool/glyph${glyph}.png`} alt={`glyph${glyph} and logo`} style="max-height: 5rem">
+              <img src={`https://static.sil.org/brand-tool/glyph${glyph}.png`} alt={`glyph${glyph} and logo`} width="150">
             </a>
           </td>
           <td style="font-family: 'Source Sans Pro'; padding: 0">
@@ -188,7 +188,7 @@ figure {
 
             {#if skypeName}
               <div style="padding-top: .25rem; padding-bottom: .25rem">
-                <img src="https://static.sil.org/brand-tool/skype-icon.png" alt="Skype logo" style="height: 1rem; vertical-align: middle; margin-right: .25rem">
+                <img src="https://static.sil.org/brand-tool/skype-icon.png" alt="Skype logo" width="16" style="vertical-align: middle; margin-right: .25rem">
                 <span style="line-height: 1rem; vertical-align: middle">{skypeName}</span>
               </div>
             {/if}
