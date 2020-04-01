@@ -204,7 +204,7 @@ figure {
     <nav>
       <header class="mdc-typography--headline5">Email client instructions</header>
 
-      <TabBar tabs={['Gmail', 'Thunderbird']} let:tab bind:active>
+      <TabBar tabs={['Gmail', 'Thunderbird', 'Outlook']} let:tab bind:active>
         <Tab {tab}>
           <Label>{tab}</Label>
         </Tab>
@@ -230,6 +230,8 @@ figure {
           <li>Click <em>Use HTML</em></li>
           <li>Paste</li>
           <li>Click <em>OK</em></li>
+        {:else if active === 'Outlook'}
+          We are still looking into instructions that will work for Outlook users.
         {/if}
       </ol>
     </nav>
