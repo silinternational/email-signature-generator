@@ -138,7 +138,7 @@ figure {
     <figure class="mdc-elevation--z3"> 
       <table style="border-spacing: 0">
         <tr>
-          <td style="padding-right: 1rem; padding-top: 0.4rem; vertical-align: top">
+          <td width="170px" style="padding-top: 0.4rem; vertical-align: top">
             <a href="https://www.sil.org">
               <img src={`https://static.sil.org/brand-tool/glyph${glyph}.png`} alt={`glyph${glyph} and logo`} style="max-height: 5rem">
             </a>
@@ -160,40 +160,40 @@ figure {
               <br>
               <a href="https://www.sil.org">SIL International</a><br>
             {/if}
+          </td>
+        </tr>
+        <tr>
+          <td style="font-family: 'Source Sans Pro'" colspan="2">
+            {#if workNumber}
+              <span style="line-height: 1.5">{workNumber} <small>(w)</small></span>
+            {/if}
 
-            {#if workNumber || cellNumber || email}
-               <br>
-              {#if workNumber}
-                {workNumber} <small>(w)</small>
-              {/if}
+            {#if workNumber && cellNumber}
+              <span style="padding-left: 0.5rem; padding-right: 0.5rem">|</span>
+            {/if}
 
-              {#if workNumber && cellNumber}
-                <span style="padding-left: 0.5rem; padding-right: 0.5rem">|</span>
-              {/if}
-
-              {#if cellNumber}
-                  {cellNumber} <small>(c)</small>
-              {/if}
-
-              {#if (workNumber || cellNumber) && email}
-                <span style="padding-left: 0.5rem; padding-right: 0.5rem">|</span>
-              {/if}
-
-              {email}
-            {/if}            
+            {#if cellNumber}
+              <span style="line-height: 1.5">{cellNumber} <small>(c)</small></span>
+            {/if}
 
             {#if chosenTzDisplay}
               <br>
-              {chosenTzDisplay}
+              <span style="line-height: 1.5">{chosenTzDisplay}</span>
             {/if}
+
+            {#if email}
+              <br>
+              <span style="line-height: 1.5">{email}</span>
+            {/if} 
 
             {#if skypeName}
-              <br>
-              <img src="https://static.sil.org/brand-tool/skype-icon.png" alt="Skype logo" style="height: 1rem; vertical-align: middle">
-              <span>{skypeName}</span><br>
+              <div style="padding-top: .25rem; padding-bottom: .25rem">
+                <img src="https://static.sil.org/brand-tool/skype-icon.png" alt="Skype logo" style="height: 1rem; vertical-align: middle; margin-right: .25rem">
+                <span style="line-height: 1rem; vertical-align: middle">{skypeName}</span>
+              </div>
             {/if}
 
-            <pre style="font-family: initial">
+            <pre style="margin-top: .25rem; font-family: 'Source Sans Pro'">
               {additional}
             </pre>
           </td>
