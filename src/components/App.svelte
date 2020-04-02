@@ -163,28 +163,27 @@ figure {
           </td>
         </tr>
         <tr>
-          <td style="font-family: 'Source Sans Pro'" colspan="2">
-            {#if workNumber}
-              <span style="line-height: 1.5">{workNumber} <small>(w)</small></span>
-            {/if}
-
-            {#if workNumber && cellNumber}
-              <span style="padding-left: 0.5rem; padding-right: 0.5rem">|</span>
-            {/if}
+          <td></td>
+          <td style="font-family: 'Source Sans Pro'">
+            {#if email}
+              <br>
+              <span style="line-height: 1.5">{email}</span>
+            {/if} 
 
             {#if cellNumber}
-              <span style="line-height: 1.5">{cellNumber} <small>(c)</small></span>
+              <br>
+              <small><strong>M:</strong></small> <span style="line-height: 1.5">{cellNumber}</span>
+            {/if}
+
+            {#if workNumber}
+              <br>
+              <small><strong>O:</strong></small> <span style="line-height: 1.5">{workNumber}</span>
             {/if}
 
             {#if chosenTzDisplay}
               <br>
               <span style="line-height: 1.5">{chosenTzDisplay}</span>
             {/if}
-
-            {#if email}
-              <br>
-              <span style="line-height: 1.5">{email}</span>
-            {/if} 
 
             {#if skypeName}
               <div style="padding-top: .25rem; padding-bottom: .25rem">
@@ -237,4 +236,3 @@ figure {
     </nav>
   </section>
 </main>
-
