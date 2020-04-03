@@ -73,6 +73,12 @@ nav > ol {
 nav > ol > li {
   margin-bottom: 1rem;
 }
+.mb-0 {
+  margin-bottom: 0;
+}
+li + ol {
+  list-style-type: lower-alpha;
+}
 figure {
   margin: 0;
   padding: 2rem;
@@ -230,7 +236,26 @@ figure {
           <li>Paste</li>
           <li>Click <em>OK</em></li>
         {:else if active === 'Outlook'}
-          We are still looking into instructions that will work for Outlook users.
+          <li>
+            <Button on:click={copy} variant='raised' dense class="mr-1">
+              Click here
+            </Button> 
+            to copy the generated signature above
+          </li>
+          <li>Open Outlook</li>
+          <li>Start a <em>New Email</em></li>
+          <li>In the top center, click <em>Signature</em> and then select <em>Edit Signatures</em></li>
+          <li>In the "Signature Name" section, click the +</li>
+          <li>Paste in the window that opens</li>
+          <li>Click the disc icon in the top left to save</li>
+          <li>Exit the window</li>
+          <li>In the top center, click <em>Signature</em> and select your signature</li>
+          <li class="mb-0">To make it your default signature:</li>
+            <ol>
+              <li>In the top center, click <em>Signature</em> and then select <em>Edit Signatures</em></li>
+              <li>In “Account” select your SIL gmail account</li>
+              <li>In “New messages” (and Replies/forwards if you want) select the saved signature</li>
+            </ol>
         {/if}
       </ol>
     </nav>
