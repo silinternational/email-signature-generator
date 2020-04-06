@@ -150,7 +150,7 @@ figure {
             </a>
           </td>
           <td style="font-family: 'Source Sans Pro'; padding: 0">
-            <strong style="color: #0b5e97">{name}</strong>
+            <strong style="color: #0b5e97; font-size: large">{name}</strong>
 
             {#if role}
               <br>
