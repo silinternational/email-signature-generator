@@ -236,12 +236,7 @@ figure {
           <li>Paste</li>
           <li>Click <em>OK</em></li>
         {:else if active === 'Outlook'}
-          <li>
-            <Button on:click={copy} variant='raised' dense class="mr-1">
-              Click here
-            </Button> 
-            to copy the generated signature above
-          </li>
+          <li>Highlight all of the generated signature above and copy it to your clipboard</li>
           <li>Open Outlook</li>
           <li>Start a <em>New Email</em></li>
           <li>In the top center, click <em>Signature</em> and then select <em>Edit Signatures</em></li>
