@@ -108,9 +108,9 @@ figure {
       <span slot="label">Show SIL International</span>
     </FormField>
 
+    <Textfield bind:value={email} label="Email" variant="outlined" />
     <Textfield bind:value={workNumber} label="Work number" variant="outlined" />
     <Textfield bind:value={cellNumber} label="Cell number" variant="outlined" />
-    <Textfield bind:value={email} label="Email" variant="outlined" />
 
     <Select label="Timezone" bind:value={chosenTzDisplay} variant="outlined" withLeadingIcon>
       <span slot="icon"><Icon class="material-icons">language</Icon></span>
