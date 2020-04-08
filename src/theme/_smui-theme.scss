@@ -1,0 +1,9 @@
+@import "@material/theme/color-palette";
+
+// https://material.io/develop/web/docs/theming/#step-3-changing-the-theme-with-sass
+$mdc-theme-primary: #0b5e97;
+$mdc-theme-secondary: #791f5e;
+$mdc-theme-background: #fff;
+$mdc-theme-surface: #fff;
+
+$mdc-theme-error: $material-color-red-900;
