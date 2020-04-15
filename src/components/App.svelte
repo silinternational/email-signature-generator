@@ -25,8 +25,19 @@ let additional = ''
 
 const NUM_GLYPHS = 5
 
+const handleCopy = e => {
+  const sig = document.querySelector('figure').innerHTML
+
+  e.clipboardData.setData('text/html', sig)
+  e.clipboardData.setData('text/plain', sig)
+  
+  e.preventDefault()
+}
+
 function copy() {
-  navigator.clipboard.writeText(document.querySelector('figure').innerHTML)
+  document.addEventListener('copy', handleCopy)
+  document.execCommand('copy')
+  document.removeEventListener('copy', handleCopy)
 }
 </script>
 
@@ -125,7 +136,6 @@ figure {
         <img src="skype-icon.svg" alt="Skype logo" class="social-logo">
       </Textfield>
     </div>
-    <!-- TODO: social links -->
 
     {#each [...Array(NUM_GLYPHS).keys()] as i}
       <FormField>
@@ -217,7 +227,12 @@ figure {
 
       <ol class="mdc-typography--body1">
         {#if active === 'Gmail'}
-          <li>Highlight all of the generated signature above and copy it to your clipboard</li>
+          <li>
+            <Button on:click={copy} variant='raised' dense class="mr-1">
+              Click here
+            </Button> 
+            to copy the generated signature above
+          </li>
           <li>Open Gmail</li>
           <li>In the top right, click <em>Settings</em></li>
           <li>In the "Signature" section, paste in the box.</li>
@@ -236,7 +251,12 @@ figure {
           <li>Paste</li>
           <li>Click <em>OK</em></li>
         {:else if active === 'Outlook'}
-          <li>Highlight all of the generated signature above and copy it to your clipboard</li>
+          <li>
+            <Button on:click={copy} variant='raised' dense class="mr-1">
+              Click here
+            </Button> 
+            to copy the generated signature above
+          </li>
           <li>Open Outlook</li>
           <li>Start a <em>New Email</em></li>
           <li>In the top center, click <em>Signature</em> and then select <em>Edit Signatures</em></li>
