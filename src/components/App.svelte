@@ -72,8 +72,9 @@ form {
 
   /* wanted this container to be scrollable so the demo never goes out of sight */
   max-height: 100vh;
-  overflow-y: scroll;
+  overflow-y: auto;
   padding-top: 0.5rem; /* floating label was getting cutoff */
+  padding-right: 0.5rem;
 }
 form > :global(*) {
   margin-bottom: 1rem;
