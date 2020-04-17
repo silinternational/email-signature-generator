@@ -10,34 +10,54 @@ import Select, {Option} from '@smui/select'
 import Icon from '@smui/select/icon'
 import Checkbox from '@smui/checkbox'
 
-let name = ''
-let org = ''
-let showSIL = false
-let role = ''
-let workNumber = ''
-let cellNumber = ''
-let email = ''
-let glyph = '1'
-let active = 'Gmail'
-let chosenTzDisplay = ''
-let skypeName = ''
-let additional = ''
+let name = localStorage.getItem('name') || ''
+let org = localStorage.getItem('org') || ''
+let showSIL = localStorage.getItem('showSIL') || false
+let role = localStorage.getItem('role') || ''
+let workNumber = localStorage.getItem('workNumber') || ''
+let cellNumber = localStorage.getItem('cellNumber') || ''
+let email = localStorage.getItem('email') || ''
+let glyph = localStorage.getItem('glyph') || '1'
+let client = localStorage.getItem('client') || 'Gmail'
+let chosenTzDisplay = localStorage.getItem('chosenTzDisplay') || ''
+let skypeName = localStorage.getItem('skypeName') || ''
+let additional = localStorage.getItem('additional') || ''
+let rememberInfo = localStorage.getItem('rememberInfo')
 
 const NUM_GLYPHS = 5
 
-const handleCopy = e => {
-  const sig = document.querySelector('figure').innerHTML
+$: rememberInfo && store('rememberInfo', rememberInfo)
+$: name && rememberInfo && store('name', name)
+$: org && rememberInfo && store('org', org)
+$: showSIL && rememberInfo && store('showSIL', showSIL)
+$: role && rememberInfo && store('role', role)
+$: workNumber && rememberInfo && store('workNumber', workNumber)
+$: cellNumber && rememberInfo && store('cellNumber', cellNumber)
+$: email && rememberInfo && store('email', email)
+$: glyph && rememberInfo && store('glyph', glyph)
+$: client && rememberInfo && store('client', client)
+$: chosenTzDisplay && rememberInfo && store('chosenTzDisplay', chosenTzDisplay)
+$: skypeName && rememberInfo && store('skypeName', skypeName)
+$: additional && rememberInfo && store('additional', additional)
+$: !rememberInfo && localStorage.clear()
 
-  e.clipboardData.setData('text/html', sig)
-  e.clipboardData.setData('text/plain', sig)
-  
-  e.preventDefault()
+function store(name, value) {
+  rememberInfo && localStorage.setItem(name, value)
 }
 
 function copy() {
+  const sig = document.querySelector('figure').innerHTML
+  
   document.addEventListener('copy', handleCopy)
   document.execCommand('copy')
   document.removeEventListener('copy', handleCopy)
+
+  function handleCopy (event) {
+    event.clipboardData.setData('text/html', sig)
+    event.clipboardData.setData('text/plain', sig)
+    
+    event.preventDefault()
+  }
 }
 </script>
 
@@ -93,6 +113,7 @@ li + ol {
 figure {
   margin: 0;
   padding: 2rem;
+  margin-bottom: 1rem;
 }
 .thumbnail {
   max-height: 3rem;
@@ -216,17 +237,22 @@ figure {
       </table>
     </figure>
 
+    <FormField>
+      <Checkbox bind:checked={rememberInfo} />
+      <span slot="label">Save info for next time</span>
+    </FormField>
+
     <nav>
       <header class="mdc-typography--headline5">Email client instructions</header>
 
-      <TabBar tabs={['Gmail', 'Thunderbird', 'Outlook']} let:tab bind:active>
+      <TabBar tabs={['Gmail', 'Thunderbird', 'Outlook']} let:tab bind:active={client}>
         <Tab {tab}>
           <Label>{tab}</Label>
         </Tab>
       </TabBar>
 
       <ol class="mdc-typography--body1">
-        {#if active === 'Gmail'}
+        {#if client === 'Gmail'}
           <li>
             <Button on:click={copy} variant='raised' dense class="mr-1">
               Click here
@@ -237,7 +263,7 @@ figure {
           <li>In the top right, click <em>Settings</em></li>
           <li>In the "Signature" section, paste in the box.</li>
           <li>At the bottom of the page, click Save Changes.</li>
-        {:else if active === 'Thunderbird'}
+        {:else if client === 'Thunderbird'}
           <li>
             <Button on:click={copy} variant='raised' dense class="mr-1">
               Click here
@@ -250,7 +276,7 @@ figure {
           <li>Click <em>Use HTML</em></li>
           <li>Paste</li>
           <li>Click <em>OK</em></li>
-        {:else if active === 'Outlook'}
+        {:else if client === 'Outlook'}
           <li>
             <Button on:click={copy} variant='raised' dense class="mr-1">
               Click here
