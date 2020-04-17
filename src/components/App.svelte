@@ -26,24 +26,20 @@ let rememberInfo = localStorage.getItem('rememberInfo')
 
 const NUM_GLYPHS = 5
 
-$: rememberInfo && store('rememberInfo', rememberInfo)
-$: name && rememberInfo && store('name', name)
-$: org && rememberInfo && store('org', org)
-$: showSIL && rememberInfo && store('showSIL', showSIL)
-$: role && rememberInfo && store('role', role)
-$: workNumber && rememberInfo && store('workNumber', workNumber)
-$: cellNumber && rememberInfo && store('cellNumber', cellNumber)
-$: email && rememberInfo && store('email', email)
-$: glyph && rememberInfo && store('glyph', glyph)
-$: client && rememberInfo && store('client', client)
-$: chosenTzDisplay && rememberInfo && store('chosenTzDisplay', chosenTzDisplay)
-$: skypeName && rememberInfo && store('skypeName', skypeName)
-$: additional && rememberInfo && store('additional', additional)
+$: rememberInfo && localStorage.setItem('rememberInfo', rememberInfo)
+$: rememberInfo && localStorage.setItem('name', name)
+$: rememberInfo && localStorage.setItem('org', org)
+$: rememberInfo && localStorage.setItem('showSIL', showSIL)
+$: rememberInfo && localStorage.setItem('role', role)
+$: rememberInfo && localStorage.setItem('workNumber', workNumber)
+$: rememberInfo && localStorage.setItem('cellNumber', cellNumber)
+$: rememberInfo && localStorage.setItem('email', email)
+$: rememberInfo && localStorage.setItem('glyph', glyph)
+$: rememberInfo && localStorage.setItem('client', client)
+$: rememberInfo && localStorage.setItem('chosenTzDisplay', chosenTzDisplay)
+$: rememberInfo && localStorage.setItem('skypeName', skypeName)
+$: rememberInfo && localStorage.setItem('additional', additional)
 $: !rememberInfo && localStorage.clear()
-
-function store(name, value) {
-  rememberInfo && localStorage.setItem(name, value)
-}
 
 function copy() {
   const sig = document.querySelector('figure').innerHTML
