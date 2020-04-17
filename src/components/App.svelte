@@ -12,7 +12,7 @@ import Checkbox from '@smui/checkbox'
 
 let name = localStorage.getItem('name') || ''
 let org = localStorage.getItem('org') || ''
-let showSIL = localStorage.getItem('showSIL') || false
+let showSIL = JSON.parse(localStorage.getItem('showSIL') || false)
 let role = localStorage.getItem('role') || ''
 let workNumber = localStorage.getItem('workNumber') || ''
 let cellNumber = localStorage.getItem('cellNumber') || ''
@@ -22,7 +22,7 @@ let client = localStorage.getItem('client') || 'Gmail'
 let chosenTzDisplay = localStorage.getItem('chosenTzDisplay') || ''
 let skypeName = localStorage.getItem('skypeName') || ''
 let additional = localStorage.getItem('additional') || ''
-let rememberInfo = localStorage.getItem('rememberInfo')
+let rememberInfo = JSON.parse(localStorage.getItem('rememberInfo'))
 
 const NUM_GLYPHS = 5
 
