@@ -177,7 +177,7 @@ figure {
               <img src={`https://static.sil.org/brand-tool/glyph${glyph}.png`} alt={`glyph${glyph} and logo`} width="150">
             </a>
           </td>
-          <td style="font-family: 'Source Sans Pro,Verdana,sans-serif'; padding: 0">
+          <td style="font-family: 'Source Sans Pro',Verdana,sans-serif; padding: 0">
             <strong style="color: #0b5e97; font-size: large">{name}</strong>
 
             {#if role}
