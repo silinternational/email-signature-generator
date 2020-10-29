@@ -21,7 +21,7 @@
     "rollup-plugin-dotenv": "^0.3.0",
     "rollup-plugin-generate-html-template": "^1.6.1",
     "rollup-plugin-livereload": "^1.1.0",
-    "rollup-plugin-postcss": "^2.5.0",
+    "rollup-plugin-postcss": "^3.1.8",
     "rollup-plugin-svelte": "^6.1.0",
     "rollup-plugin-terser": "^5.3.0",
     "sass": "^1.26.3",
