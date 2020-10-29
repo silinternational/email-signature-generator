@@ -6,7 +6,7 @@
     "@material/theme": "^4.0.0",
     "@material/typography": "^3.1.0",
     "@rollup/plugin-commonjs": "^11.0.2",
-    "@rollup/plugin-node-resolve": "^6.0.0",
+    "@rollup/plugin-node-resolve": "^10.0.0",
     "@smui/button": "^1.0.0",
     "@smui/checkbox": "^1.0.0",
     "@smui/form-field": "^1.0.0",
