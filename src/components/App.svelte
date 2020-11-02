@@ -144,9 +144,9 @@ figure {
     <Select label="Timezone" bind:value={chosenTzDisplay} variant="outlined" withLeadingIcon>
       <span slot="icon"><Icon class="material-icons">language</Icon></span>
       <Option value=""></Option>
-        {#each timezones as tz}
-          <Option>{tz.name} ({tz.offset})</Option>
-        {/each}
+      {#each timezones as tz}
+        <Option value={tz.name}>{tz.name} ({tz.offset})</Option>
+      {/each}
     </Select>
 
     <div>
