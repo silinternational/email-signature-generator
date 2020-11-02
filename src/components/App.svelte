@@ -59,21 +59,27 @@ function copy() {
 
 <style>
 :global(body) {
-  margin: 3rem;
+  margin-right: 3rem;
+  margin-left: 3rem;
 }
 
 main {
   display: flex;
   flex-direction: row;
 }
+section {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
 form {
   margin-right: 2rem;
   width: 55ch;
-
+  position:-webkit-sticky;
+  position: sticky;
+  top: .5rem;
   /* wanted this container to be scrollable so the demo never goes out of sight */
   max-height: 100vh;
   overflow-y: auto;
-  padding-top: 0.5rem; /* floating label was getting cutoff */
   padding-right: 0.5rem;
 }
 form > :global(*) {
@@ -129,6 +135,7 @@ figure {
 
 <main>
   <form>
+    <div style="height: 1.5rem;"></div>
     <Textfield bind:value={name} label="Name" input$autofocus variant="outlined" />
     <Textfield bind:value={role} label="Role" variant="outlined" />
     <Textfield bind:value={org} label="Organization / Unit" variant="outlined" />
