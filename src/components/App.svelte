@@ -74,16 +74,16 @@ section {
 form {
   margin-right: 2rem;
   width: 55ch;
-  position:-webkit-sticky;
+  position: -webkit-sticky;
   position: sticky;
   top: .5rem;
   /* wanted this container to be scrollable so the demo never goes out of sight */
-  max-height: 100vh;
+  max-height: 90vh;  /* Wanted the user to be able to scroll to very last input */
   overflow-y: auto;
   padding-right: 0.5rem;
 }
 form > :global(*) {
-  margin-bottom: 1rem;
+  margin-top: 1rem; /* This ensures the floating label for first input does not get cut off */
 }
 form :global(label) {
   width: 100%;
@@ -135,7 +135,6 @@ figure {
 
 <main>
   <form>
-    <div style="height: 1.5rem;"></div>
     <Textfield bind:value={name} label="Name" input$autofocus variant="outlined" />
     <Textfield bind:value={role} label="Role" variant="outlined" />
     <Textfield bind:value={org} label="Organization / Unit" variant="outlined" />
