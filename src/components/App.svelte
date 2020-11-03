@@ -59,25 +59,31 @@ function copy() {
 
 <style>
 :global(body) {
-  margin: 3rem;
+  margin-right: 3rem;
+  margin-left: 3rem;
 }
 
 main {
   display: flex;
   flex-direction: row;
 }
+section {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
 form {
   margin-right: 2rem;
   width: 55ch;
-
+  position: -webkit-sticky;
+  position: sticky;
+  top: .5rem;
   /* wanted this container to be scrollable so the demo never goes out of sight */
-  max-height: 100vh;
+  max-height: 90vh;  /* Wanted the user to be able to scroll to very last input */
   overflow-y: auto;
-  padding-top: 0.5rem; /* floating label was getting cutoff */
   padding-right: 0.5rem;
 }
 form > :global(*) {
-  margin-bottom: 1rem;
+  margin-top: 1rem; /* This ensures the floating label for first input does not get cut off */
 }
 form :global(label) {
   width: 100%;
@@ -144,9 +150,9 @@ figure {
     <Select label="Timezone" bind:value={chosenTzDisplay} variant="outlined" withLeadingIcon>
       <span slot="icon"><Icon class="material-icons">language</Icon></span>
       <Option value=""></Option>
-        {#each timezones as tz}
-          <Option>{tz.name} ({tz.offset})</Option>
-        {/each}
+      {#each timezones as tz}
+        <Option value={tz.name}>{tz.name} ({tz.offset})</Option>
+      {/each}
     </Select>
 
     <div>
