@@ -13,6 +13,13 @@ module "app" {
   origin_path         = "/public"
   s3_origin_id        = "s3-origin"
   deployment_user_arn = data.terraform_remote_state.common.outputs.codeship_arn
+  custom_error_response = [
+    {
+      error_code         = 404
+      response_code      = 200
+      response_page_path = "/index.html"
+    },
+  ]
 }
 
 // Create DNS CNAME record on Cloudflare for app
