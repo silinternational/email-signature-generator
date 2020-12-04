@@ -6,4 +6,5 @@ public/index.html
 *.tfstate
 *.tfstate.backup
 .terraform/
+tfc-remote.tf
 .env
