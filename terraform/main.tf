@@ -24,12 +24,20 @@ module "app" {
 
 // Create DNS CNAME record on Cloudflare for app
 resource "cloudflare_record" "static" {
-  domain     = var.cloudflare_domain
+  zone_id    = data.cloudflare_zones.domain.zones[0].id
   name       = var.subdomain
   type       = "CNAME"
   value      = module.app.cloudfront_hostname
   proxied    = true
   depends_on = [module.app]
+}
+
+data "cloudflare_zones" "domain" {
+  filter {
+    name        = var.cloudflare_domain
+    lookup_type = "exact"
+    status      = "active"
+  }
 }
 
 resource "null_resource" "force_apply" {
