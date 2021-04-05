@@ -41,18 +41,15 @@ $: rememberInfo && localStorage.setItem('skypeName', skypeName)
 $: rememberInfo && localStorage.setItem('additional', additional)
 $: !rememberInfo && localStorage.clear()
 
-function copy() {
+async function copy() {
   const sig = document.querySelector('figure').innerHTML
   
-  document.addEventListener('copy', handleCopy)
-  document.execCommand('copy')
-  document.removeEventListener('copy', handleCopy)
+  const data = [new ClipboardItem({ "text/html": sig })]
 
-  function handleCopy (event) {
-    event.clipboardData.setData('text/html', sig)
-    event.clipboardData.setData('text/plain', sig)
-    
-    event.preventDefault()
+  try {
+    await navigator.clipboard.write(data)
+  } catch {
+    alert('Failed to copy you signature.')
   }
 }
 </script>
