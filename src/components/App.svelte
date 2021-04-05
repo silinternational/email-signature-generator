@@ -42,11 +42,11 @@ $: rememberInfo && localStorage.setItem('additional', additional)
 $: !rememberInfo && localStorage.clear()
 
 async function copy() {
-  const sig = document.querySelector('figure').innerHTML
+  const sig = new Blob( [document.querySelector('figure').innerHTML], {type: "text/html"} )
   
-  const data = [new ClipboardItem({ "text/html": sig })]
-
   try {
+    const data = [new ClipboardItem({ "text/html": sig })]
+
     await navigator.clipboard.write(data)
   } catch {
     alert('Failed to copy you signature.')
