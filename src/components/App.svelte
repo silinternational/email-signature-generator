@@ -49,7 +49,7 @@ async function copy() {
 
     await navigator.clipboard.write(data)
   } catch {
-    alert('Failed to copy you signature.')
+    alert('Failed to copy your signature.')
   }
 }
 </script>
