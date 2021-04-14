@@ -42,14 +42,23 @@ $: rememberInfo && localStorage.setItem('additional', additional)
 $: !rememberInfo && localStorage.clear()
 
 async function copy() {
-  const sig = new Blob( [document.querySelector('figure').innerHTML], {type: "text/html"} )
+  const sig = document.querySelector('figure').innerHTML
   
   try {
-    const data = [new ClipboardItem({ "text/html": sig })]
+    const data = [new ClipboardItem({ "text/html": sig }), new ClipboardItem({ "text/plain": sig })]
 
     await navigator.clipboard.write(data)
   } catch {
-    alert('Failed to copy you signature.')
+    document.addEventListener('copy', handleCopy)
+    document.execCommand('copy')
+    document.removeEventListener('copy', handleCopy)
+
+    function handleCopy (event) {
+      event.clipboardData.setData('text/html', sig)
+      event.clipboardData.setData('text/plain', sig)
+      
+      event.preventDefault()
+    }
   }
 }
 </script>
