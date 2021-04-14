@@ -41,18 +41,24 @@ $: rememberInfo && localStorage.setItem('skypeName', skypeName)
 $: rememberInfo && localStorage.setItem('additional', additional)
 $: !rememberInfo && localStorage.clear()
 
-function copy() {
+async function copy() {
   const sig = document.querySelector('figure').innerHTML
   
-  document.addEventListener('copy', handleCopy)
-  document.execCommand('copy')
-  document.removeEventListener('copy', handleCopy)
+  try {
+    const data = [new ClipboardItem({ "text/html": sig }), new ClipboardItem({ "text/plain": sig })]
 
-  function handleCopy (event) {
-    event.clipboardData.setData('text/html', sig)
-    event.clipboardData.setData('text/plain', sig)
-    
-    event.preventDefault()
+    await navigator.clipboard.write(data)
+  } catch {
+    document.addEventListener('copy', handleCopy)
+    document.execCommand('copy')
+    document.removeEventListener('copy', handleCopy)
+
+    function handleCopy (event) {
+      event.clipboardData.setData('text/html', sig)
+      event.clipboardData.setData('text/plain', sig)
+      
+      event.preventDefault()
+    }
   }
 }
 </script>
