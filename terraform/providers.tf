@@ -5,6 +5,6 @@ provider "aws" {
 }
 
 provider "cloudflare" {
-  api_key = var.cloudflare_token
+  api_token = var.cloudflare_token
 }
 
