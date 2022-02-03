@@ -39,9 +39,3 @@ data "cloudflare_zones" "domain" {
     status      = "active"
   }
 }
-
-resource "null_resource" "force_apply" {
-  triggers = {
-    time = timestamp()
-  }
-}
