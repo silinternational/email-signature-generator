@@ -2,18 +2,18 @@
 # Manual edits may be lost in future updates.
 
 provider "registry.terraform.io/cloudflare/cloudflare" {
-  version     = "2.20.0"
-  constraints = "~> 2.0"
+  version     = "3.8.0"
+  constraints = "~> 3.0"
   hashes = [
-    "h1:hq912gbF5V9qU6O6TpIjDecKCOpZ3s/o0HIZAIESlw8=",
+    "h1:zAhG5lsZGX9sJUbqoaFVZbVsJnvkb+GUKyEZ+EEnW/w=",
   ]
 }
 
 provider "registry.terraform.io/hashicorp/aws" {
-  version     = "2.70.0"
-  constraints = "~> 2.70"
+  version     = "3.74.0"
+  constraints = "~> 3.0"
   hashes = [
-    "h1:6tf4jg37RrMHyVCql+fEgAFvX8JiqDognr+lk6rx7To=",
+    "h1:YNOblHBUf+XTjGTfIIsAMGp4weXB+tmQrMPCrpmM1/U=",
   ]
 }
 
