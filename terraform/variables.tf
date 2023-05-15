@@ -33,3 +33,25 @@ variable "app_aliases" {
   description = "List of domains (FQDNs) to serve UI app on"
 }
 
+
+/*
+ * AWS tag values
+ */
+
+variable "app_customer" {
+  description = "customer name to use for the itse_app_customer tag"
+  type        = string
+  default     = "sil"
+}
+
+variable "app_environment" {
+  description = "environment name to use for the itse_app_environment tag, e.g. staging, production"
+  type        = string
+  default     = "production"
+}
+
+variable "app_name" {
+  description = "app name to use for the itse_app_name tag"
+  type        = string
+  default     = "email-signature-generator"
+}
