@@ -2,7 +2,7 @@
 // docs: https://registry.terraform.io/modules/fillup/hugo-s3-cloudfront/aws/3.0.0
 module "app" {
   source  = "fillup/hugo-s3-cloudfront/aws"
-  version = "4.1.0"
+  version = "6.0.2"
 
   aliases             = var.app_aliases
   bucket_name         = var.app_bucket_name
