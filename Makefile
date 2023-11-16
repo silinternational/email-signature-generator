@@ -1,6 +1,10 @@
 
 start: install dev
 
+docker:
+	docker-compose run --rm app npm install
+	docker-compose run --rm --service-ports app
+
 install:
 	npm install
 
