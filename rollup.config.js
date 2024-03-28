@@ -1,11 +1,11 @@
-import svelte from 'rollup-plugin-svelte'
-import resolve from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
+import dotenv from 'rollup-plugin-dotenv'
+import htmlTemplate from 'rollup-plugin-generate-html-template'
 import postcss from 'rollup-plugin-postcss'
 import livereload from 'rollup-plugin-livereload'
+import resolve from '@rollup/plugin-node-resolve'
+import svelte from 'rollup-plugin-svelte'
 import { terser } from 'rollup-plugin-terser'
-import htmlTemplate from 'rollup-plugin-generate-html-template'
-import dotenvPlugin from 'rollup-plugin-dotenv'
 
 const cacheBust = Date.now()
 
@@ -23,7 +23,7 @@ export default {
 		svelte(),
 
 		// makes NAME=VALUE pairs in a .env file available in the app as process.env.<NAME> vars
-		dotenvPlugin(),
+		dotenv(),
 
 		// If you have external dependencies installed from npm, you'll most likely need these plugins. In
 		// some cases you'll need additional configuration — consult the documentation for details: https://github.com/rollup/rollup-plugin-commonjs
