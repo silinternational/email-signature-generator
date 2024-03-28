@@ -2,11 +2,11 @@
 import Textfield from '@smui/textfield'
 import Radio from '@smui/radio'
 import FormField from '@smui/form-field'
-import Tab, {Label} from '@smui/tab'
+import Tab, { Label } from '@smui/tab'
 import TabBar from '@smui/tab-bar'
 import Button from '@smui/button'
 import timezones from '../data/tz'
-import Select, {Option} from '@smui/select'
+import Select, { Option } from '@smui/select'
 import Icon from '@smui/select/icon'
 import Checkbox from '@smui/checkbox'
 
@@ -43,9 +43,9 @@ $: !rememberInfo && localStorage.clear()
 
 async function copy() {
   const sig = document.querySelector('figure').innerHTML
-  
+
   try {
-    const data = [new ClipboardItem({ "text/html": sig }), new ClipboardItem({ "text/plain": sig })]
+    const data = [new ClipboardItem({ 'text/html': sig }), new ClipboardItem({ 'text/plain': sig })]
 
     await navigator.clipboard.write(data)
   } catch {
@@ -53,10 +53,10 @@ async function copy() {
     document.execCommand('copy')
     document.removeEventListener('copy', handleCopy)
 
-    function handleCopy (event) {
+    function handleCopy(event) {
       event.clipboardData.setData('text/html', sig)
       event.clipboardData.setData('text/plain', sig)
-      
+
       event.preventDefault()
     }
   }
@@ -82,9 +82,9 @@ form {
   width: 55ch;
   position: -webkit-sticky;
   position: sticky;
-  top: .5rem;
+  top: 0.5rem;
   /* wanted this container to be scrollable so the demo never goes out of sight */
-  max-height: 90vh;  /* Wanted the user to be able to scroll to very last input */
+  max-height: 90vh; /* Wanted the user to be able to scroll to very last input */
   overflow-y: auto;
   padding-right: 0.5rem;
 }
@@ -135,7 +135,7 @@ figure {
   top: 13px;
 }
 :global(.mr-1) {
-  margin-right: .5rem;
+  margin-right: 0.5rem;
 }
 </style>
 
@@ -163,7 +163,7 @@ figure {
 
     <div>
       <Textfield bind:value={skypeName} label="Skype name" variant="outlined" withTrailingIcon>
-        <img src="skype-icon.svg" alt="Skype logo" class="social-logo">
+        <img src="skype-icon.svg" alt="Skype logo" class="social-logo" />
       </Textfield>
     </div>
 
@@ -171,8 +171,12 @@ figure {
       <FormField>
         <Radio bind:group={glyph} value={`${i + 1}`} />
         <span slot="label">
-          <img src={`https://static.sil.org/brand-tool/glyph${i + 1}.png`} alt={`glyph${i + 1}-logo`} class="thumbnail">
-        </span>        
+          <img
+            src={`https://static.sil.org/brand-tool/glyph${i + 1}.png`}
+            alt={`glyph${i + 1}-logo`}
+            class="thumbnail"
+          />
+        </span>
       </FormField>
     {/each}
 
@@ -181,30 +185,34 @@ figure {
 
   <!-- this will abide by HTML email constraints so user can copy/paste into email client -->
   <section>
-    <figure class="mdc-elevation--z3"> 
+    <figure class="mdc-elevation--z3">
       <table style="border-spacing: 0">
         <tr>
           <td width="170px" style="padding-top: 0.4rem; vertical-align: top">
             <a href="https://www.sil.org">
-              <img src={`https://static.sil.org/brand-tool/glyph${glyph}.png`} alt={`glyph${glyph} and logo`} width="150">
+              <img
+                src={`https://static.sil.org/brand-tool/glyph${glyph}.png`}
+                alt={`glyph${glyph} and logo`}
+                width="150"
+              />
             </a>
           </td>
           <td style="font-family: 'Source Sans Pro',Verdana,sans-serif; padding: 0">
             <strong style="color: #0b5e97; font-size: large">{name}</strong>
 
             {#if role}
-              <br>
+              <br />
               {role}
             {/if}
 
             {#if org}
-              <br>
+              <br />
               {org}
             {/if}
 
             {#if showSIL}
-              <br>
-              <a href="https://www.sil.org">SIL International</a><br>
+              <br />
+              <a href="https://www.sil.org">SIL International</a><br />
             {/if}
           </td>
         </tr>
@@ -212,28 +220,33 @@ figure {
           <td></td>
           <td style="font-family: 'Source Sans Pro'">
             {#if email}
-              <br>
+              <br />
               <span style="line-height: 1.5">{email}</span>
-            {/if} 
+            {/if}
 
             {#if cellNumber}
-              <br>
+              <br />
               <small><strong>M:</strong></small> <span style="line-height: 1.5">{cellNumber}</span>
             {/if}
 
             {#if workNumber}
-              <br>
+              <br />
               <small><strong>O:</strong></small> <span style="line-height: 1.5">{workNumber}</span>
             {/if}
 
             {#if chosenTzDisplay}
-              <br>
+              <br />
               <span style="line-height: 1.5">{chosenTzDisplay}</span>
             {/if}
 
             {#if skypeName}
               <div style="padding-top: .25rem; padding-bottom: .25rem">
-                <img src="https://static.sil.org/brand-tool/skype-icon.png" alt="Skype logo" width="16" style="vertical-align: middle; margin-right: .25rem">
+                <img
+                  src="https://static.sil.org/brand-tool/skype-icon.png"
+                  alt="Skype logo"
+                  width="16"
+                  style="vertical-align: middle; margin-right: .25rem"
+                />
                 <span style="line-height: 1rem; vertical-align: middle">{skypeName}</span>
               </div>
             {/if}
@@ -263,9 +276,7 @@ figure {
       <ol class="mdc-typography--body1">
         {#if client === 'Gmail'}
           <li>
-            <Button on:click={copy} variant='raised' dense class="mr-1">
-              Click here
-            </Button> 
+            <Button on:click={copy} variant="raised" dense class="mr-1">Click here</Button>
             to copy the generated signature above
           </li>
           <li>Open Gmail</li>
@@ -274,9 +285,7 @@ figure {
           <li>At the bottom of the page, click Save Changes.</li>
         {:else if client === 'Thunderbird'}
           <li>
-            <Button on:click={copy} variant='raised' dense class="mr-1">
-              Click here
-            </Button> 
+            <Button on:click={copy} variant="raised" dense class="mr-1">Click here</Button>
             to copy the generated signature above
           </li>
           <li>Open Thunderbird</li>
@@ -287,9 +296,7 @@ figure {
           <li>Click <em>OK</em></li>
         {:else if client === 'Outlook'}
           <li>
-            <Button on:click={copy} variant='raised' dense class="mr-1">
-              Click here
-            </Button> 
+            <Button on:click={copy} variant="raised" dense class="mr-1">Click here</Button>
             to copy the generated signature above
           </li>
           <li>Open Outlook</li>
@@ -301,11 +308,11 @@ figure {
           <li>Exit the window</li>
           <li>In the top center, click <em>Signature</em> and select your signature</li>
           <li class="mb-0">To make it your default signature:</li>
-            <ol>
-              <li>In the top center, click <em>Signature</em> and then select <em>Edit Signatures</em></li>
-              <li>In “Account” select your SIL gmail account</li>
-              <li>In “New messages” (and Replies/forwards if you want) select the saved signature</li>
-            </ol>
+          <ol>
+            <li>In the top center, click <em>Signature</em> and then select <em>Edit Signatures</em></li>
+            <li>In “Account” select your SIL gmail account</li>
+            <li>In “New messages” (and Replies/forwards if you want) select the saved signature</li>
+          </ol>
         {/if}
       </ol>
     </nav>
