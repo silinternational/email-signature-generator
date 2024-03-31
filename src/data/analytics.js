@@ -1,24 +1,21 @@
-// TODO: rename this in cloudflare
-const GA_MEASUREMENT_ID = process.env.GOOGLE_ANALYTICS_ID || ''
-
 init()
 
-// https://developers.google.com/analytics/devguides/collection/gtagjs
-// https://developers.google.com/analytics/devguides/collection/upgrade/analyticsjs
+// https://developers.google.com/analytics/devguides/collection/analyticsjs
 function init() {
   loadLib()
-  ;(window).dataLayer = (window).dataLayer || []
-  window.gtag = () => (window).dataLayer.push(arguments)
-  gtag('js', new Date())
+  
+  window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)}
+  ga.l=+new Date
 
-  gtag('config', GA_MEASUREMENT_ID)
+  ga('create', process.env.GOOGLE_ANALYTICS_ID, 'auto')
+  ga('send', 'pageview')
 }
 
 function loadLib() {
-  const script = document.createElement('script')
+  const el = document.createElement('script')
 
-  script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`
-  script.async = true
-
-  document.head.appendChild(script)
+  el.src = 'https://www.google-analytics.com/analytics.js'
+  el.async = true
+  
+  document.head.appendChild(el)
 }
