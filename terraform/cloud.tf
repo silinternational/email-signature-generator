@@ -3,7 +3,7 @@ terraform {
     organization = "gtis"
 
     workspaces {
-      tags = ["app:email-signature-generator"]
+      name = "email-signature-generator"
     }
   }
 }
