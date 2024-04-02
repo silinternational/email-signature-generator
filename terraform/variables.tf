@@ -1,16 +1,4 @@
-variable "aws_region" {
-  default = "us-east-1"
-}
 
-variable "aws_access_key" {
-}
-
-variable "aws_secret_key" {
-}
-
-/*
- * Cloudflare Pages variables
- */
 variable "cloudflare_account_id" {
   description = "Cloudflare account number"
   type        = string
